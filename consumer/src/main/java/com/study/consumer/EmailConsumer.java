@@ -20,9 +20,10 @@ public class EmailConsumer {
 		groupId = "email-send-group"
 	)
 	@RetryableTopic(
-		// 총 시도 횟수, 재시도 간격
+		// 총 시도 횟수, 재시도 간격, DLT 접미사
 		attempts = "5",
-		backoff = @Backoff(delay = 1000, multiplier = 2)
+		backoff = @Backoff(delay = 1000, multiplier = 2),
+		dltTopicSuffix = ".dlt"
 	)
 	public void consume(String message) {
 		System.out.println("수신 메시지: " + message);
