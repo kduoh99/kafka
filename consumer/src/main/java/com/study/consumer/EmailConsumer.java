@@ -17,7 +17,8 @@ public class EmailConsumer {
 
 	@KafkaListener(
 		topics = "email.send",
-		groupId = "email-send-group"
+		groupId = "email-send-group",
+		concurrency = "3" // 병렬 처리 쓰레드 수
 	)
 	@RetryableTopic(
 		// 총 시도 횟수, 재시도 간격, DLT 접미사
