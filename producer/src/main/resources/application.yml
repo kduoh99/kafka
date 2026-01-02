@@ -1,6 +1,6 @@
 spring:
   kafka:
-    bootstrap-servers: {EC2 IP}:9092  # Kafka ?? ??
+    bootstrap-servers: 3.34.190.117:9092  # Kafka ?? ??
     producer:
       # ??? Key/Value ??? ??
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
