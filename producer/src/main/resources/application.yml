@@ -1,7 +1,10 @@
 spring:
   kafka:
-    bootstrap-servers: 3.34.190.117:9092  # Kafka ?? ??
+    bootstrap-servers: 3.34.190.117:9092  # Kafka 서버 주소
     producer:
-      # ??? Key/Value ??? ??
+      # 메시지 Key/Value 직렬화 방식
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # 라운드 로빈 파티셔너 적용
+      properties:
+        partitioner.class: org.apache.kafka.clients.producer.RoundRobinPartitioner

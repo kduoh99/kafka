@@ -1,13 +1,12 @@
 server:
-  port: 0  # ?? ?? ??
+  port: 0  # 랜덤 포트 할당
 
 spring:
   kafka:
-    bootstrap-servers: 3.34.190.117:9092  # Kafka ?? ??
+    bootstrap-servers: 3.34.190.117:9092  # Kafka 서버 주소
     consumer:
-      # ??? Key/Value ???? ??
+      # 메시지 Key/Value 역직렬화 방식
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-
-      # ???? ??? ?? ???? ??
+      # 오프셋이 없으면 가장 처음부터 읽기
       auto-offset-reset: earliest
